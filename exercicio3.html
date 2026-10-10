@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Alterando H1</h1>
+
+    <script>
+        const titulo = document.querySelector('h1')
+
+        //alterar texto
+        titulo.textContent = 'Hello World!'
+
+        //alterar cor
+        titulo.style.color = 'pink'
+
+        //sortear tamanho titulo entre 30 e 100 px
+        const tamanho = Math.floor(Math.random() * 71) + 30
+
+        titulo.style.fontSize = tamanho + 'px'
+
+
+    </script>
+    
+</body>
+</html>

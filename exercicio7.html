@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img id="imgWaddles" width="300px" src="https://i.pinimg.com/736x/b6/cb/e6/b6cbe609fb3056610eb672c3056a3bce.jpg">
+
+    <p>???????</p>
+
+    <button id="btnMudar">Clique para ver outro Waddles</button>
+
+    <script>
+
+        const btnMudar = document.querySelector('#btnMudar')
+        const imgWaddles = document.querySelector('#imgWaddles')
+
+        let paragrafo1 = document.querySelector('p')
+        let imagem = document.querySelector('img')
+
+        imagem.onclick = clicou
+        imagem.onmouseenter = mouseenter
+        imagem.onmousemove = mousemove
+        imagem.onmouseleave = mouseleave
+
+
+        function clicou(){
+            paragrafo1.textContent = "Eu sou o Waddles!"
+        }
+
+        let paragrafo2 = document.querySelector('p')
+
+        function mouseenter(){
+            paragrafo2.textContent = "OII"
+        }
+
+        let paragrafo3 = document.querySelector('p')
+
+        function mousemove(){
+            paragrafo3.textContent = "Sai de cima de mim!!"
+        }
+
+        let paragrafo4 = document.querySelector('p')
+
+        function mouseleave(){
+            paragrafo4.textContent = "Bem melhor :) "
+        }
+
+        //mudar img
+        btnMudar.addEventListener('click', () => {
+            imgWaddles.src = 'https://static.wikia.nocookie.net/disney/images/d/dd/Waddles_the_Pig.jpg/revision/latest?cb=20160710192404&path-prefix=pt-br'
+        })
+
+
+    </script>
+    
+</body>
+</html>

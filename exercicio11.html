@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f0f0;
+        }
+
+        #formulario {
+            width: 350px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .escritos input{
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+        }
+
+        #btnCadastrar {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #mensagem {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--////////////////////////////////////////////////////-->
+    <!--    USEI IA PARA FAZER E ENTENDER ALGUMAS PARTES    -->
+    <!--////////////////////////////////////////////////////-->
+
+    <form id="formulario">
+        <h1>Cadastro</h1>
+
+        <div class="escritos">
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome">
+
+            <label for="email">E-mail:</label>
+            <input type="text" id="email">
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha">
+
+            <label for="confirmacao">Confirmar senha:</label>
+            <input type="password" id="confirmacao">
+
+        </div>
+        
+        <label>
+            <input type="checkbox" id="mostrarSenha">
+            Mostrar senhas
+        </label>
+
+        <br><br>
+
+        <button id="btnCadastrar" type="submit">Cadastrar</button>
+
+        <div id="mensagem"></div>
+    </form>
+
+    <script>
+        const formulario = document.querySelector("#formulario")
+        const nome = document.querySelector("#nome")
+        const email = document.querySelector("#email")
+        const senha = document.querySelector("#senha")
+        const confirmacao = document.querySelector("#confirmacao")
+        const mostrarSenha = document.querySelector("#mostrarSenha")
+        const mensagem = document.querySelector("#mensagem")
+
+        //Regex usa para verificar se um texto tem determinadas regras, usei IA para entender e fazer esses Regex
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/
+
+        //quando o formularia é enviado executa a função
+        formulario.addEventListener("submit", function(evento) { //o evento representa o envio do formulário
+            evento.preventDefault() // dá para verifica o nome, o e-mail e as senhas sem recarregar a página, usei IA para fazer e entender isso 
+
+            if (nome.value.trim().length < 3) { //esta verificando se o nome tem 3 caracteres sem espaços antes e depois
+                mensagem.innerText = "O nome deve ter pelo menos 3 caracteres."
+                return
+            }
+
+            if (!emailRegex.test(email.value)) { //mostra a mensagem de erro quando o e-mail NÃO tiver o Regex
+                mensagem.innerText = "Digite um e-mail válido."
+                return
+            }
+
+            if (!senhaRegex.test(senha.value)) { //o mesmo que o email
+                mensagem.innerText = "A senha deve ter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial."
+                return
+            }
+
+            if (senha.value !== confirmacao.value) {//vê se a senha e a confirmação são diferentes
+                mensagem.innerText = "As senhas não são iguais."
+                return
+            }
+
+            mensagem.innerText = "Cadastro validado com sucesso!"
+        });
+
+        //mostrar senha
+        mostrarSenha.addEventListener("change", function() {
+            if (mostrarSenha.checked) { //mostra a senha e a confirmação em forma de texto
+                senha.type = "text"
+                confirmacao.type = "text"
+            } else { //mostra a senha e a confirmação em forma de senha, as bolinhas 
+                senha.type = "password"
+                confirmacao.type = "password"
+            }
+        });
+    </script>
+
+</body>
+</html>

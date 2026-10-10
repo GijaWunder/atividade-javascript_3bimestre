@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p><span id="acao">???</span> <samp id="local">???</samp> <samp id="complemento">???</samp></p>
+
+    <button id="botao">Clique para criar a sua aventura</button>
+
+    <script>
+        const botao = document.querySelector('#botao')
+
+
+        let acoes = ["A Busca", "A Batalha", "O Resgate"]
+        let locais = ["na Floresta Sombria", "no Reino Perdido", "na Montanha Misteriosa"]
+        let complementos = ["do Dragão", "do Tesouro Esquecido", "da Espada Ancestral"]
+
+        botao.addEventListener('click', () => {
+            let acao = document.querySelector("p #acao")
+            acao.innerText = acoes[Math.floor(Math.random() * 3)]
+
+            let local = document.querySelector("p #local")
+            local.innerText = locais[Math.floor(Math.random() * 3)]
+
+            let complemento = document.querySelector("p #complemento")
+            complemento.innerText = complementos[Math.floor(Math.random() * 3)]
+        })
+
+    </script>
+    
+</body>
+</html>

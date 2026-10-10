@@ -1,0 +1,2 @@
+O objetivo de usar JavaScript no Frontend é dar interatividade e dinamismo às páginas web, 
+transformando arquivos estáticos de texto e estilo em aplicações vivas que respondem às ações do usuário.

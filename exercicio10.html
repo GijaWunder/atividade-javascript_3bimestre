@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    h1{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+    }
+
+    body{
+        background-color: rgb(238, 235, 235);
+    }
+
+</style>
+
+<body>
+
+    <h1>Imagens aleatórias</h1>
+
+    <img id="imagem" src="https://picsum.photos/id/237/600/400" alt="Imagem aleatória">
+
+    <script>
+        const imagens = [
+            "https://picsum.photos/id/237/600/400",
+            "https://picsum.photos/id/238/600/400",
+            "https://picsum.photos/id/239/600/400",
+            "https://picsum.photos/id/240/600/400"
+        ]
+
+        let indice = 0
+
+        function trocarImagem() {
+            document.querySelector("#imagem").src = imagens[indice]
+
+            indice++
+            if (indice >= imagens.length) {
+                indice = 0
+            }
+        }
+
+        setInterval(trocarImagem, 5000)
+    </script>
+
+</body>
+</html>
